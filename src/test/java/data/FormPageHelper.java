@@ -11,8 +11,13 @@ public class FormPageHelper {
     private String firstName = faker.name().firstName();
     private String lastName = faker.name().lastName();
     private String email = faker.internet().emailAddress();
+    private String incorrectEmails = faker.internet().emailAddress().replace(".", "");
     private String mobilePhone = faker.phoneNumber().subscriberNumber(10);
     private String currentAddress = faker.address().fullAddress();
+
+    public String getIncorrectEmails() {
+        return incorrectEmails;
+    }
 
     public String getCurrentAddress() {
         return currentAddress;
@@ -55,12 +60,17 @@ public class FormPageHelper {
 
     public String setRandomMonth() {
         final Random random = new Random();
-//        List<String> str = new ArrayList<>(List.of("January", "February", "March",
-//                "April", "May", "June", "July", "August", "September",
-//                "October", "November", "December"));
         int i = random.nextInt(0, 11);
         String month = Integer.toString(i);
         return month;
+    }
+
+    public String getMonth(String indexMonth) {
+        List<String> str = new ArrayList<>(List.of("January", "February", "March",
+                "April", "May", "June", "July", "August", "September",
+                "October", "November", "December"));
+        int num = Integer.parseInt(indexMonth);
+        return str.get(num);
     }
 
     public String setRandomYear() {

@@ -2,14 +2,14 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import pages.component.CalendarComponent;
+import pages.component.DeletionPopup;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.executeJavaScript;
-import static org.openqa.selenium.remote.tracing.EventAttribute.setValue;
 
 public class PracticeFormPage {
     CalendarComponent component = new CalendarComponent();
+    DeletionPopup popup = new DeletionPopup();
     private SelenideElement
             firstName = $("#firstName"),
             lastName = $("#lastName"),
@@ -37,8 +37,7 @@ public class PracticeFormPage {
 
     public PracticeFormPage openPracticeFormPage() {
         open("/automation-practice-form");
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
+        popup.removingPopup();
         return this;
     }
 
@@ -77,7 +76,6 @@ public class PracticeFormPage {
         mobile.setValue(mobilePhone);
         return this;
     }
-
     public PracticeFormPage setPicture(String strPicture) {
         picture.uploadFromClasspath(strPicture);
         return this;

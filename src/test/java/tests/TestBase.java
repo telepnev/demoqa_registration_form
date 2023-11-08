@@ -9,7 +9,6 @@ import static com.codeborne.selenide.Selenide.*;
 
 
 public class TestBase {
-
     @BeforeAll
     static public void setUps() {
         Configuration.baseUrl = "https://demoqa.com";
@@ -20,7 +19,6 @@ public class TestBase {
         Configuration.browser = "firefox";
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
-
     }
 
     @AfterEach
