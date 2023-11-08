@@ -1,13 +1,10 @@
 package tests;
 
-import com.codeborne.selenide.Condition;
 import data.FormPageHelper;
 import org.junit.jupiter.api.Test;
 import pages.PracticeFormPage;
 import pages.component.ModalComponent;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.sleep;
 
 public class PracticeFormTests extends TestBase {
     PracticeFormPage practiceFormPage = new PracticeFormPage();
